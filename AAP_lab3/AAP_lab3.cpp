@@ -29,8 +29,11 @@ void task1()
         for (int j = 0; j < n; j++)
         {
             cout  << "i = " << i << "j = " << j << endl;
+            
             c[i][j] = min + (rand() % (int)(max - min + 1));
+            cout << "i = " << i << "j = " << j << endl;
         }
+
     }
     
     //вивід елементів
