@@ -92,7 +92,6 @@ void headertask2()
     printf("Завдання 2. Вивести номері стовпців де всі елементи додатні");
     printf("та рядки де всі елементи відємні");
 }
-
 void GenerateElementsTask2()
 {
     srand(time(0));
@@ -104,7 +103,6 @@ void GenerateElementsTask2()
         }
     }
 }
-
 void DisplayElementsTask2()
 {
     {
@@ -117,7 +115,6 @@ void DisplayElementsTask2()
     }
 
 }
-
 void FindSameLowerZeroElementsInRows()
 {
     int count = 0;
@@ -174,14 +171,13 @@ void FindSameHighterZeroElementsInPillar()
     cout << "sum = " << sum;
 }
 
-
 void task2()
 {
     auto start = high_resolution_clock::now();
     headertask2();
     GenerateElementsTask2();
     DisplayElementsTask2();
-    //FindSameLowerZeroElementsInRows();
+    FindSameLowerZeroElementsInRows();
     FindSameHighterZeroElementsInPillar();
     auto stop = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(stop - start);
@@ -190,7 +186,7 @@ void task2()
 
 int main() {
     setlocale(LC_ALL, "Ukrainian");
-    //task1();
+    task1();
     task2();
     
 
