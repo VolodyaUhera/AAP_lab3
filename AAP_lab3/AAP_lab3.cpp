@@ -7,8 +7,8 @@
 #define n 6 
 int c[n][n]{}; // array for task1
 
-#define h 3
-#define l 3
+#define h 5
+#define l 7
 int a[h][l]{}; // array for task2
 
 using namespace std;
@@ -129,7 +129,7 @@ void FindSameLowerZeroElementsInRows()
             if (a[i][j] < 0)
             {
                 count++;
-                cout << count << endl;
+                //cout << count << endl;
             }else{
                 i++;
                 j = 0;
@@ -143,7 +143,7 @@ void FindSameLowerZeroElementsInRows()
             }
         }
     }
-    cout << "sum = " << sum;
+    cout << "sum = " << sum-1;
 }
 void FindSameHighterZeroElementsInPillar()
 {
@@ -156,7 +156,7 @@ void FindSameHighterZeroElementsInPillar()
             if (a[j][i] > 0)
             {
                 count++;
-                cout << count << endl;
+                //cout << count << endl;
             }
             else {
                 i++;
