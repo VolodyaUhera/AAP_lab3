@@ -100,7 +100,7 @@ void GenerateElementsTask2()
     for (int i = 0; i < h; i++) {
         for (int j = 0; j < l; j++) {
             //cout << "i = " << i << "j = " << j << endl;
-            a[i][j] = 1;//(int)(min + (rand() % (int)(max - min + 1)));
+            a[i][j] = (int)(min + (rand() % (int)(max - min + 1)));
         }
     }
 }
@@ -158,8 +158,20 @@ void FindSameHighterZeroElementsInPillar()
                 count++;
                 cout << count << endl;
             }
+            else {
+                i++;
+                j = 0;
+                count = 0;
+
+            }
+            if (count == h)
+            {
+                sum++;
+                count = 0;
+            }
         }
     }
+    cout << "sum = " << sum;
 }
 
 
@@ -179,7 +191,7 @@ void task2()
 int main() {
     setlocale(LC_ALL, "Ukrainian");
     //task1();
-    //task2();
-    FindSameHighterZeroElementsInPillar();
+    task2();
+    
 
 }
