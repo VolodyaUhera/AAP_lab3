@@ -1,10 +1,14 @@
 #include <iostream>
 
 #include <ctime>
+#include <chrono>
 
-#define n 3
-int c[n][n]{};
+//create 2d array
+#define n 6 //size array
+int c[n][n]{}; // array
+
 using namespace std;
+using namespace std::chrono;
 
 void GenerateElements()
 {
@@ -52,14 +56,18 @@ void FindSameElementsAndShowIt()
 
         }
     }
-    cout << "\n" << count;
+    cout << "\n" << count << '\n';
 }
 
 void task1() {
+    auto start = high_resolution_clock::now();
     GenerateElements();
     DisplayElements();
     FindSameElementsAndShowIt();
-
+    auto stop = high_resolution_clock::now();
+    auto duration = duration_cast<microseconds>(stop - start);
+    cout << "duration taken (milliseconds) = " << duration.count()/1000 << endl;
+    
 }
 
 int main() {
