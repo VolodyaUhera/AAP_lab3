@@ -4,7 +4,7 @@
 #include <chrono>
 
 //create 2d array
-#define n 6 //size array
+#define n 3 //size array
 int c[n][n]{}; // array
 
 using namespace std;
@@ -48,7 +48,8 @@ void FindSameElementsAndShowIt()
                     //cout << "f = " << f << '\n' << endl;
                     if (temp == c[k][f] && (x + y) != (k + f)) {
                         count++;
-                        cout << "c[y][x] = " << y << ' ' << x << " c[k][f] = " << k << ' ' << f << endl;
+                        cout << "c[y][x] = " << y << ' ' << x << " c[k][f] = " << k << ' ' << f  << endl;
+                        printf("%d \n", c[x][y]);
                         break;
                     }
                 }
