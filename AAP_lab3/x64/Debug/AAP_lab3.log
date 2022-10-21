@@ -1,5 +1,4 @@
 ﻿  AAP_lab3.cpp
-D:\WORKASPACE\C++\AAP_lab3\AAP_lab3\AAP_lab3.cpp(18,39): warning C4305: 'initializing': truncation from 'double' to 'float'
-D:\WORKASPACE\C++\AAP_lab3\AAP_lab3\AAP_lab3.cpp(22,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-D:\WORKASPACE\C++\AAP_lab3\AAP_lab3\AAP_lab3.cpp(53,23): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\WORKASPACE\C++\AAP_lab3\AAP_lab3\AAP_lab3.cpp(11,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\WORKASPACE\C++\AAP_lab3\AAP_lab3\AAP_lab3.cpp(12,39): warning C4305: 'initializing': truncation from 'double' to 'float'
   AAP_lab3.vcxproj -> D:\WORKASPACE\C++\AAP_lab3\x64\Debug\AAP_lab3.exe

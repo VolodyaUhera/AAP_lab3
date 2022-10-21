@@ -1,81 +1,68 @@
 #include <iostream>
+
 #include <ctime>
 
 #define n 3
-
+int c[n][n]{};
 using namespace std;
 
-void title1()
+void GenerateElements()
 {
-    cout << "Лабораторна робота №3" << endl;
-    cout << "Завдання 1. Програма обрахунку  суми кулькості елементів C[i][j]=C[j][i]" << endl;
-}
-
-
-void task1()
-{
-    float c[n][n]{}, sum{};
-    static float min = -10, max = 30.9;
-    int count = 0;
-    static int l = 1;
-    
     srand(time(0));
-    
-    title1();
-
-    //генерування елементів
-    for (int i = 0; i<n; i++)
-    {
-        for (int j = 0; j < n; j++)
-        {
-            cout  << "i = " << i << "j = " << j << endl;
-            
-            c[i][j] = min + (rand() % (int)(max - min + 1));
+    static float min = -10, max = 30.9;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
             cout << "i = " << i << "j = " << j << endl;
+            c[i][j] = (int)(min + (rand() % (int)(max - min + 1)));
         }
-
     }
-    
-    //вивід елементів
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < n; j++)
-        {
-            cout <<c[i][j]<< '\t';
+}
+void DisplayElements()
+{
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            cout << c[i][j] << '\t';
         }
         cout << '\n';
     }
+}
+void FindSameElementsAndShowIt()
+{
+    int count = 0;
+    //Find dyblicate elements
+    //get elemnts
+    for (int y = 0; y < n; y++) {
+        //cout << "y = " << y <<'\t'<< endl;
+        for (int x = 0; x < n; x++) {
+            //cout << "x = " << x <<'\n'<< endl;
+            //create temp 
+            int temp = c[y][x];
+            //check next elements after x,y
+            for (int k = 0; k < n; k++) {
+                //cout << "k = " << k << '\t' << endl;
+                for (int f = 0; f < n; f++) {
+                    //cout << "f = " << f << '\n' << endl;
+                    if (temp == c[k][f] && (x + y) != (k + f)) {
+                        count++;
+                        cout << "c[y][x] = " << y << ' ' << x << " c[k][f] = " << k << ' ' << f << endl;
+                        break;
+                    }
+                }
+            }
 
-    for (int y = 0; y < n; y++)
-    {
-        for (int x = 0; x < n; x++)
-        {
-             int temp = c[y][x];
-             //сканувати теперішній рядкоу
-             for (int k = x + 1; k < n; k++)
-             {
-                 if (temp == c[y][k])
-                 {
-                     count++;
-                     break;
-                 }
-             }
-             //сканувати теперішню колону
-             for (int k = y + 1; k < n; k++)
-             {
-                 if (temp == c[k][x])
-                 {
-                     count++;
-                     break;
-                 }
-             }
         }
     }
-    cout << "\n" << count ;
+    cout << "\n" << count;
 }
 
-int main()
-{
+void task1() {
+    GenerateElements();
+    DisplayElements();
+    FindSameElementsAndShowIt();
+
+}
+
+int main() {
     setlocale(LC_ALL, "Ukrainian");
     task1();
 
