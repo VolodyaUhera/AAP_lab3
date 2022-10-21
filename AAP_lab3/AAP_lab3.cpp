@@ -100,7 +100,7 @@ void GenerateElementsTask2()
     for (int i = 0; i < h; i++) {
         for (int j = 0; j < l; j++) {
             //cout << "i = " << i << "j = " << j << endl;
-            a[i][j] = (int)(min + (rand() % (int)(max - min + 1)));
+            a[i][j] = 1;//(int)(min + (rand() % (int)(max - min + 1)));
         }
     }
 }
@@ -118,16 +118,10 @@ void DisplayElementsTask2()
 
 }
 
-bool is_low_then_zero(int i)
+void FindSameLowerZeroElementsInRows()
 {
-    return (i < 0);
-}
-void FindSameElementsInRows()
-{
-
-    int count{};
-    int row{};
-    int sum{};
+    int count = 0;
+    int sum = 0;
     for (int i = 0; i < h; i++)
     {
         for (int j = 0; j < l; j++)
@@ -135,17 +129,39 @@ void FindSameElementsInRows()
             if (a[i][j] < 0)
             {
                 count++;
-                if (count == 5)
-                {
-                    cout << count << endl;
-                    sum++;
-                    break;
-
-                }
+                cout << count << endl;
+            }else{
+                i++;
+                j = 0;
+                count = 0;
+                
+            }
+            if (count == h)
+            {
+                sum++;
+                count = 0;
+            }
+        }
+    }
+    cout << "sum = " << sum;
+}
+void FindSameHighterZeroElementsInPillar()
+{
+    int count = 0;
+    int sum = 0;
+    for (int i = 0; i < l; i++)
+    {
+        for (int j = 0; j < h; j++)
+        {
+            if (a[j][i] > 0)
+            {
+                count++;
+                cout << count << endl;
             }
         }
     }
 }
+
 
 void task2()
 {
@@ -153,7 +169,8 @@ void task2()
     headertask2();
     GenerateElementsTask2();
     DisplayElementsTask2();
-    FindSameElementsInRows();
+    //FindSameLowerZeroElementsInRows();
+    FindSameHighterZeroElementsInPillar();
     auto stop = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(stop - start);
     cout << "duration taken (milliseconds) = " << duration.count() / 1000 << endl;
@@ -162,6 +179,7 @@ void task2()
 int main() {
     setlocale(LC_ALL, "Ukrainian");
     //task1();
-    task2();
+    //task2();
+    FindSameHighterZeroElementsInPillar();
 
 }
